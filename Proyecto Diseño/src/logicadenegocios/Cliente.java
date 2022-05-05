@@ -8,7 +8,7 @@ public class Cliente extends Persona {
   private ArrayList<Cuenta> misCuentas;
   
   public Cliente(String pPrimerApellido, String pSegundoApellido, String pNombre, String pIdentificacion,
-			Date pFechaNacimiento, double pNumTelefonico, String pCorreoElectronico, String pCodigoCliente){
+			String pFechaNacimiento, double pNumTelefonico, String pCorreoElectronico, String pCodigoCliente){
     super(pPrimerApellido, pSegundoApellido, pNombre, pIdentificacion, pFechaNacimiento, pNumTelefonico,
 				pCorreoElectronico);    
     setCodigoCliente(pCodigoCliente);
@@ -28,6 +28,13 @@ public class Cliente extends Persona {
 
   public void setCodigoCliente(String pCodigoCliente) {
 	this.codigoCliente = pCodigoCliente;
+  }
+  
+  public String toString() {
+    String mensaje = "";
+    mensaje += super.toString();
+    mensaje +=" \nCodigo Cliente: " + getCodigoCliente();
+    return mensaje;
   }
 
 }

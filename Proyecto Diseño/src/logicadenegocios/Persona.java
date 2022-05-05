@@ -7,11 +7,11 @@ public abstract class Persona {
   private String segundoApellido;
   private String nombre;
   private String identificacion;
-  private Date fechaNacimiento;
+  private String fechaNacimiento;
   private double numTelefonico;
   private String correoElectronico;
 
-  public Persona(String pPrimerApellido, String pSegundoApellido, String pNombre, String pIdentificacion, Date pFechaNacimiento, double pNumTelefonico,
+  public Persona(String pPrimerApellido, String pSegundoApellido, String pNombre, String pIdentificacion, String pFechaNacimiento, double pNumTelefonico,
 		String pCorreoElectronico) {
 	setPrimerApellido(pPrimerApellido);
 	setSegundoApellido(pSegundoApellido);
@@ -44,7 +44,7 @@ public abstract class Persona {
     return identificacion;
   }
 
-  public Date getFechaNacimiento() {
+  public String getFechaNacimiento() {
     return fechaNacimiento;
   }
 
@@ -72,7 +72,7 @@ public abstract class Persona {
     this.identificacion = pIdentificacion;
   }
 
-  public void setFechaNacimiento(Date pFechaNacimiento) {
+  public void setFechaNacimiento(String pFechaNacimiento) {
     this.fechaNacimiento = pFechaNacimiento;
   }
 
@@ -84,4 +84,15 @@ public abstract class Persona {
     this.correoElectronico = pCorreoElectronico;
   }
 
+  public String toString() {
+    String mensaje = "";
+	mensaje += "\nPrimer apellido: " + getPrimerApellido();
+	mensaje +="\nSegundo apellido: " + getSegundoApellido();
+	mensaje +="\nNombre: " +getNombre();
+	mensaje +="\nIdentificacion: " +getIdentificacion();
+	mensaje +="\nFecha de nacimiento: " +getFechaNacimiento();
+	mensaje +="\nNumero Telefonico: " +getNumTelefonico();
+	mensaje +="\nCorreo Electronico: " +getCorreoElectronico();
+	return mensaje;
+  }
 }
