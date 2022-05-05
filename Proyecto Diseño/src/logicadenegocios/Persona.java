@@ -3,16 +3,19 @@ package logicadenegocios;
 import java.util.Date;
 
 public abstract class Persona {
-  private String nombreCompleto;
+  private String primerApellido;
+  private String segundoApellido;
+  private String nombre;
   private String identificacion;
   private Date fechaNacimiento;
   private double numTelefonico;
   private String correoElectronico;
 
-  public Persona(String pNombreCompleto, String pIdentificacion, Date pFechaNacimiento, double pNumTelefonico,
+  public Persona(String pPrimerApellido, String pSegundoApellido, String pNombre, String pIdentificacion, Date pFechaNacimiento, double pNumTelefonico,
 		String pCorreoElectronico) {
-	  
-    setNombreCompleto(pNombreCompleto);
+	setPrimerApellido(pPrimerApellido);
+	setSegundoApellido(pSegundoApellido);
+    setNombre(pNombre);
     setIdentificacion(pIdentificacion);
     setFechaNacimiento(pFechaNacimiento);
     setNumTelefonico(pNumTelefonico);
@@ -21,10 +24,20 @@ public abstract class Persona {
 
   public abstract void registrarCuenta();
   
+  public void consultarTipoCambio() {
+	  
+  }
   
+  public String getPrimerApellido() {
+	return primerApellido;
+  }
   
-  public String getNombreCompleto() {
-    return nombreCompleto;
+  public String getSegundoApellido() {
+	return segundoApellido;
+  }
+  
+  public String getNombre() {
+    return nombre;
   }
 	
   public String getIdentificacion() {
@@ -43,8 +56,16 @@ public abstract class Persona {
     return correoElectronico;
   }
 
-  public void setNombreCompleto(String pNombreCompleto) {
-    this.nombreCompleto = pNombreCompleto;
+  public void setPrimerApellido(String pPrimerApellido) {
+	this.nombre = pPrimerApellido;
+  }
+  
+  public void setSegundoApellido(String pSegundoApellido) {
+	this.nombre = pSegundoApellido;
+  }
+	  
+    public void setNombre(String pNombre) {
+    this.nombre = pNombre;
   }
 	
   public void setIdentificacion(String pIdentificacion) {
