@@ -8,10 +8,10 @@ public abstract class Persona {
   private String nombre;
   private String identificacion;
   private String fechaNacimiento;
-  private double numTelefonico;
+  private String numTelefonico;
   private String correoElectronico;
 
-  public Persona(String pPrimerApellido, String pSegundoApellido, String pNombre, String pIdentificacion, String pFechaNacimiento, double pNumTelefonico,
+  public Persona(String pPrimerApellido, String pSegundoApellido, String pNombre, String pIdentificacion, String pFechaNacimiento, String pNumTelefonico,
 		String pCorreoElectronico) {
 	setPrimerApellido(pPrimerApellido);
 	setSegundoApellido(pSegundoApellido);
@@ -48,7 +48,7 @@ public abstract class Persona {
     return fechaNacimiento;
   }
 
-  public double getNumTelefonico() {
+  public String getNumTelefonico() {
     return numTelefonico;
   }
 	
@@ -76,7 +76,7 @@ public abstract class Persona {
     this.fechaNacimiento = pFechaNacimiento;
   }
 
-  public void setNumTelefonico(double pNumTelefonico) {
+  public void setNumTelefonico(String pNumTelefonico) {
     this.numTelefonico = pNumTelefonico;
   }
 

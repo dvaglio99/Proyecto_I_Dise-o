@@ -1,22 +1,23 @@
 package logicadenegocios;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 
-public class Cliente extends Persona {
+public class Cliente extends Persona implements Comparable<Cliente>{
   private String codigoCliente;
-  private ArrayList<Cuenta> misCuentas;
+  private List<Cuenta> misCuentas;
   
   public Cliente(String pPrimerApellido, String pSegundoApellido, String pNombre, String pIdentificacion,
-			String pFechaNacimiento, double pNumTelefonico, String pCorreoElectronico, String pCodigoCliente){
+			String pFechaNacimiento, String pNumTelefonico, String pCorreoElectronico, String pCodigoCliente){
     super(pPrimerApellido, pSegundoApellido, pNombre, pIdentificacion, pFechaNacimiento, pNumTelefonico,
 				pCorreoElectronico);    
     setCodigoCliente(pCodigoCliente);
+    
   }
 
   public void registrarCuenta() {
     		
   }
+  
   
   void agregarCuenta(Cuenta pCuenta) {
 	  misCuentas.add(pCuenta);
@@ -36,5 +37,12 @@ public class Cliente extends Persona {
     mensaje +=" \nCodigo Cliente: " + getCodigoCliente();
     return mensaje;
   }
+
+public int compareTo(Cliente o) {
+	return this.getPrimerApellido().compareTo(o.getPrimerApellido());
+}
+
+
+
 
 }

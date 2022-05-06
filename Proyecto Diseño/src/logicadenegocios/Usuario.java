@@ -5,7 +5,7 @@ import java.util.Date;
 public class Usuario extends Persona{
 
   public Usuario(String pPrimerApellido, String pSegundoApellido, String pNombre, String pIdentificacion,
-			String pFechaNacimiento, double pNumTelefonico, String pCorreoElectronico) {
+			String pFechaNacimiento, String pNumTelefonico, String pCorreoElectronico) {
     super(pPrimerApellido, pSegundoApellido, pNombre, pIdentificacion, pFechaNacimiento, pNumTelefonico,
 				pCorreoElectronico);
   }

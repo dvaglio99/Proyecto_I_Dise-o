@@ -4,21 +4,22 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Cuenta {
-  private double numeroCuenta;
+  private int numeroCuenta;
   private String PIN;
-  private Date fechaCreacion;
-  private double saldo;
+  private String fechaCreacion;
+  private double saldo = 0;
   private String estado;
   private Cliente duenio;
   private ArrayList<Operacion> operaciones;
   
   
-  public Cuenta(double pNumeroCuenta, String pPIN, Date pFechaCreacion, double pSaldo, String pEstado) {
+  public Cuenta(int pNumeroCuenta, String pPIN, String pFechaCreacion, double pSaldo, String pEstado, Cliente pDuenio) {
     setNumeroCuenta(pNumeroCuenta);
     setPIN(pPIN);
     setFechaCreacion(pFechaCreacion);
     setSaldo(pSaldo);
     setEstado(pEstado);
+    setCliente(pDuenio);
     operaciones = new ArrayList<Operacion>();
   }
   
@@ -43,7 +44,7 @@ public class Cuenta {
     operaciones.add(op);
   }
   
-  public double getNumeroCuenta() {
+  public int getNumeroCuenta() {
 	return numeroCuenta;
   }
   
@@ -51,7 +52,7 @@ public class Cuenta {
     return PIN;
   }
   
-  public Date getFechaCreacion() {
+  public String getFechaCreacion() {
 	return fechaCreacion;
   }
   
@@ -66,7 +67,7 @@ public class Cuenta {
   public Cliente getCliente() {
 	return duenio;
   }
-  public void setNumeroCuenta(double pNumeroCuenta) {
+  public void setNumeroCuenta(int pNumeroCuenta) {
     this.numeroCuenta = pNumeroCuenta;
   }
   
@@ -74,7 +75,7 @@ public class Cuenta {
 	PIN = pPIN;
   }
   
-  public void setFechaCreacion(Date pFechaCreacion) {
+  public void setFechaCreacion(String pFechaCreacion) {
 	this.fechaCreacion = pFechaCreacion;
   }
   
@@ -88,5 +89,16 @@ public class Cuenta {
   
   public void setCliente(Cliente pDuenio) {
 	  this.duenio = pDuenio;
+  }
+  
+  public String toString() {
+	  String mensaje = "";
+	  mensaje += "\n Numero de cuenta: " + getNumeroCuenta();
+	  mensaje += "\n PIN: " +getPIN();
+	  mensaje += "\n Fecha de Creacion: " + getFechaCreacion();
+	  mensaje += "\n Saldo: " + getSaldo();
+	  mensaje += "\n Estado: " + getEstado();
+	  mensaje += "\n Duenio: " + getCliente();
+	  return mensaje;
   }
 }
