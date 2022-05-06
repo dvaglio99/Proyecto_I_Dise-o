@@ -102,9 +102,8 @@ public class AplCuentas {
       
       case 1: registrarCliente();
         break;
-      case 2:  consultarClientes();
+        /**case 2:  consultarClientes();
         break;
-       /**
       case 3: consultarSenderistasMayoresDeNEdad();
         break;
       case 4: registrarLugar();
@@ -159,18 +158,16 @@ public class AplCuentas {
 	System.out.print("\nIngrese la identificacion del cliente: ");
     identificacion = in.readLine();
     System.out.print("\nIngrese la fecha de nacimiento del cliente (formato DD/MM/AAAA): ");
-    if (Validaciones.obtenerFechaFormateada(in.readLine()) == true) {
-    	fechaNacimiento = in.readLine();
-    } else {
-	  System.out.println("Formato de fecha incorrecta. Intente de nuevo.");
+    fechaNacimiento = in.readLine();
+    if (Validaciones.obtenerFechaFormateada(fechaNacimiento) != true) {
+  	  System.out.println("Formato de fecha incorrecta. Intente de nuevo.");
     }
     System.out.print("\nIngrese el numero telefonico del cliente: ");
     numeroTelefonico = Double.parseDouble(in.readLine());
     System.out.print("\nIngrese el correo electronico del cliente: ");
-    if (Validaciones.validarCorreoElectronico(in.readLine()) == true) {
-      correoElectronico = in.readLine();
-    } else {
-	  System.out.println("Formato de correo incorrecto. Intente de nuevo.");
+    correoElectronico = in.readLine();
+    if (Validaciones.validarCorreoElectronico(correoElectronico) != true) {
+  	  System.out.println("Formato de correo incorrecto. Intente de nuevo.");
     }
     codigoCliente = "CIF-"+(indice+1);
     
@@ -178,15 +175,19 @@ public class AplCuentas {
 		  numeroTelefonico, correoElectronico, codigoCliente);
     clientes.add(cliente);
 
-    System.out.println("El Cliente fue agregado");
+    System.out.println("Se ha creado un nuevo cliente en el sistema, los datos que fueron almacenados son: "
+    		+"\n Codigo: "+ codigoCliente + "\n Nombre: "+ primerApellido+ " " + segundoApellido + " " +
+    		nombre + "\n Identificacion:" + identificacion + "\n Fecha Nacimiento: "+ 
+    		fechaNacimiento + "\n Numero Telefonico: " +numeroTelefonico +
+    		"\n Correo Electronico: " + correoElectronico);
   }
   
-  static void consultarClientes() throws IOException {
+/**  static void consultarClientes() throws IOException {
 	    
 	    for (Cliente buscar: clientes) {
 	      System.out.println(buscar);
 	    }
 
 	  }
-
+*/
 }

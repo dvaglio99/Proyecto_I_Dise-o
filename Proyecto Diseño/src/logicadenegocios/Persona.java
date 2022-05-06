@@ -57,11 +57,11 @@ public abstract class Persona {
   }
 
   public void setPrimerApellido(String pPrimerApellido) {
-	this.nombre = pPrimerApellido;
+	this.primerApellido = pPrimerApellido;
   }
   
   public void setSegundoApellido(String pSegundoApellido) {
-	this.nombre = pSegundoApellido;
+	this.segundoApellido = pSegundoApellido;
   }
 	  
     public void setNombre(String pNombre) {
