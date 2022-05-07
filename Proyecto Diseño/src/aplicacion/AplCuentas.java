@@ -1,10 +1,10 @@
 package aplicacion;
 
 import logicadenegocios.Persona;
-
 import logicadenegocios.Cuenta; 
 import logicadenegocios.Cliente;
 import validaciones.Validaciones;
+import dao.ClienteDAO;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -22,13 +22,15 @@ import java.util.regex.Pattern;
 
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
+
 import java.io.IOException;
 
 public class AplCuentas {
-  
+  public static ClienteDAO clienteDao;
   static BufferedReader in;
   static int indice = 0;
   private static List<Cliente> clientes = new ArrayList<Cliente>();
+  //private static Cliente clientes[];
   private static ArrayList<Cuenta> misCuentas = new ArrayList<Cuenta>();
   /**
    * Metodo Main
@@ -158,49 +160,47 @@ public class AplCuentas {
     
   }
 	
-  static void registrarCliente() throws IOException {
-    String primerApellido = "";
-	String segundoApellido = "";
-    String nombre = "";
-    String identificacion = "";
-	String fechaNacimiento = "";
-	String numeroTelefonico;
-	String correoElectronico = null;
-	String codigoCliente = null;
+static void registrarCliente() throws IOException {
+	
+}
+/*	 String primerApellido;
+	 String segundoApellido;
+	 String nombre;
+	 String identificacion;
+	 String fechaNacimiento;
+	 String numeroTelefonico;
+	 String correoElectronico;
+	 
+	 System.out.print("\nIngrese el primer apellido del cliente: ");
+		primerApellido = in.readLine();
+		System.out.print("\nIngrese el segundo apellido del cliente: ");
+		segundoApellido = in.readLine();
+		System.out.print("Ingrese el nombre del cliente: ");
+		nombre = in.readLine();
+		System.out.print("\nIngrese la identificacion del cliente: ");
+	    identificacion = in.readLine();
+	    System.out.print("\nIngrese la fecha de nacimiento del cliente (formato dd-MM-AAAA): ");
+	    fechaNacimiento = in.readLine();
+	    System.out.print("\nIngrese el numero telefonico del cliente (formato ####-####): ");
+	    numeroTelefonico = in.readLine();
+	    System.out.print("\nIngrese el correo electronico del cliente: ");
+	    correoElectronico = in.readLine();
+	    if (Validaciones.validarFormatoCorreoElectronico(correoElectronico) == true && 
+	    		Validaciones.obtenerFechaFormateada(fechaNacimiento) == true &&
+	    		Validaciones.validarFormatoNumeroTelefonico(numeroTelefonico)) {
+	    	String resultado = clienteDao.registrarCliente(primerApellido, segundoApellido, nombre, identificacion, fechaNacimiento, numeroTelefonico, correoElectronico);
+	    	if (resultado != null) {
+	    	System.out.println("Se ha creado un nuevo cliente en el sistema, los datos que fueron almacenados son: "
+		      		+ "\n Nombre: "+ primerApellido+ " " + segundoApellido + " " +
+		      		nombre + "\n Identificacion:" + identificacion + "\n Fecha Nacimiento: "+ 
+		      		fechaNacimiento + "\n Numero Telefonico: " +numeroTelefonico +
+		      		"\n Correo Electronico: " + correoElectronico);
+	    } else {
+	          System.out.print("Registro exitoso");
+	        }
+	    }
 	    
-	System.out.print("\nIngrese el primer apellido del cliente: ");
-	primerApellido = in.readLine();
-	System.out.print("\nIngrese el segundo apellido del cliente: ");
-	segundoApellido = in.readLine();
-	System.out.print("Ingrese el nombre del cliente: ");
-	nombre = in.readLine();
-	System.out.print("\nIngrese la identificacion del cliente: ");
-    identificacion = in.readLine();
-    System.out.print("\nIngrese la fecha de nacimiento del cliente (formato dd-MM-AAAA): ");
-    fechaNacimiento = in.readLine();
-    System.out.print("\nIngrese el numero telefonico del cliente (formato ####-####): ");
-    numeroTelefonico = in.readLine();
-    System.out.print("\nIngrese el correo electronico del cliente: ");
-    correoElectronico = in.readLine();
-    if (Validaciones.validarFormatoCorreoElectronico(correoElectronico) == true && 
-    		Validaciones.obtenerFechaFormateada(fechaNacimiento) == true &&
-    		Validaciones.validarFormatoNumeroTelefonico(numeroTelefonico)) {
-      codigoCliente = "CIF-"+(indice+1);    
-      Cliente cliente = new Cliente(primerApellido, segundoApellido, nombre, identificacion, fechaNacimiento, 
-    	  numeroTelefonico, correoElectronico, codigoCliente);
-      clientes.add(cliente);
-      System.out.println("Se ha creado un nuevo cliente en el sistema, los datos que fueron almacenados son: "
-      		+"\n Codigo: "+ codigoCliente + "\n Nombre: "+ primerApellido+ " " + segundoApellido + " " +
-      		nombre + "\n Identificacion:" + identificacion + "\n Fecha Nacimiento: "+ 
-      		fechaNacimiento + "\n Numero Telefonico: " +numeroTelefonico +
-      		"\n Correo Electronico: " + correoElectronico);
-    } else {
-    	System.out.println("Error: Revise que los datos que esta ingresando coincidan con los formatos pedidos"
-    	  		+ " y vuelva a intentarlo.");
-    }
-    
-    
-  }
+ } */
   
   static void registrarCuenta() throws IOException {
 	  DecimalFormat formatoDecimal = new DecimalFormat("#.00");
@@ -255,7 +255,8 @@ public class AplCuentas {
   }
   
   static void consultarClientesOrdenados() {
-	  List<Cliente> clientesOrdenados = new ArrayList<Cliente>();
+	  }
+	 /* List<Cliente> clientesOrdenados = new ArrayList<Cliente>();
 
 	  for (Cliente cliente: clientes ) {
 		 cliente.compareTo(cliente); 
@@ -271,5 +272,5 @@ public class AplCuentas {
 	  } */
 	  //List<Cliente> clientes = new ArrayList<Cliente>();
 	  //clientes.add(null);
-  } 
+   
 }
