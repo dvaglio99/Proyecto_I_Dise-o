@@ -23,7 +23,8 @@ public class Conexion {
    * Metodo que realiza la conexion a la base de datos
    * @return la conexion efectuada a la base de datos
    */  
-  public Connection Conexion() {
+  @SuppressWarnings("deprecation")
+public Connection Conexion() {
     try {
       Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();
       con = DriverManager.getConnection(connectionURL);

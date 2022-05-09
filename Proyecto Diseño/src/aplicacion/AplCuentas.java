@@ -22,13 +22,15 @@ import java.util.regex.Pattern;
 
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
+import conexion.Conexion;
 
 import java.io.IOException;
 
 public class AplCuentas {
-  public static ClienteDAO clienteDao;
+  public static ClienteDAO clienteDao = new ClienteDAO();
   static BufferedReader in;
   static int indice = 0;
+  Conexion conexion;
   private static List<Cliente> clientes = new ArrayList<Cliente>();
   //private static Cliente clientes[];
   private static ArrayList<Cuenta> misCuentas = new ArrayList<Cuenta>();
@@ -42,10 +44,10 @@ public class AplCuentas {
 	//misCuentas  = new ArrayList<Cuenta>();
 	
     in=new BufferedReader(new InputStreamReader(System.in));
-    
+    //System.out.println(conexion.Conexion());
     boolean noSalir = true;
     int opcion;
-    String PIN = "#D4nie";
+    /*String PIN = "#D4nie";
     System.out.print(Validaciones.validarPIN(PIN));
     String date = "25-05-1997";
     System.out.println(Validaciones.obtenerFechaFormateada(date));
@@ -57,7 +59,7 @@ public class AplCuentas {
 	  final Matcher matcher = pattern.matcher(phone);
 	  System.out.println(matcher.matches());
 	  String correo = "vaglio99gmail.com";
-	  System.out.println(Validaciones.validarFormatoCorreoElectronico(correo));
+	  System.out.println(Validaciones.validarFormatoCorreoElectronico(correo)); */
     do {
         
       mostrarMenu();
@@ -161,9 +163,8 @@ public class AplCuentas {
   }
 	
 static void registrarCliente() throws IOException {
-	
-}
-/*	 String primerApellido;
+	// ClienteDAO clienteDao = new ClienteDAO();
+	 String primerApellido;
 	 String segundoApellido;
 	 String nombre;
 	 String identificacion;
@@ -188,19 +189,19 @@ static void registrarCliente() throws IOException {
 	    if (Validaciones.validarFormatoCorreoElectronico(correoElectronico) == true && 
 	    		Validaciones.obtenerFechaFormateada(fechaNacimiento) == true &&
 	    		Validaciones.validarFormatoNumeroTelefonico(numeroTelefonico)) {
-	    	String resultado = clienteDao.registrarCliente(primerApellido, segundoApellido, nombre, identificacion, fechaNacimiento, numeroTelefonico, correoElectronico);
-	    	if (resultado != null) {
+	    	clienteDao.registrarCliente(primerApellido, segundoApellido, nombre, identificacion, fechaNacimiento, numeroTelefonico, correoElectronico);
+	    	//if (resultado != null) {
 	    	System.out.println("Se ha creado un nuevo cliente en el sistema, los datos que fueron almacenados son: "
 		      		+ "\n Nombre: "+ primerApellido+ " " + segundoApellido + " " +
 		      		nombre + "\n Identificacion:" + identificacion + "\n Fecha Nacimiento: "+ 
 		      		fechaNacimiento + "\n Numero Telefonico: " +numeroTelefonico +
 		      		"\n Correo Electronico: " + correoElectronico);
-	    } else {
+	   //} else {
 	          System.out.print("Registro exitoso");
-	        }
+	       // }
 	    }
 	    
- } */
+ } 
   
   static void registrarCuenta() throws IOException {
 	  DecimalFormat formatoDecimal = new DecimalFormat("#.00");
@@ -255,6 +256,8 @@ static void registrarCliente() throws IOException {
   }
   
   static void consultarClientesOrdenados() {
+	  ClienteDAO clienteDao = new ClienteDAO();
+	  clienteDao.consultarClientesOrdenados();
 	  }
 	 /* List<Cliente> clientesOrdenados = new ArrayList<Cliente>();
 
